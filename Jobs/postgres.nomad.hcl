@@ -15,8 +15,13 @@ job "quotes-flask-postgres" {
       provider = "nomad"
     }
 
+
     task "postgres-task" {
       driver = "docker"
+
+      env {
+        POSTGRES_PASSWORD = "Y29tcGxpY2F0ZWQ="
+      }
 
       config {
         image = "postgres:latest"
