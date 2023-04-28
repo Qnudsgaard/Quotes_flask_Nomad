@@ -19,7 +19,7 @@ job "quotes-flask-postgres" {
       driver = "docker"
 
       config {
-        image = "postgres:14.3"
+        image = "postgres:latest"
         ports = ["postgres"]
       }
     }

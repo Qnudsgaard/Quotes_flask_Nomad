@@ -18,12 +18,7 @@ job "quotes-flask-web" {
     task "ptc-web-task" {
       template {
         data        = <<EOH
-{{ range nomadService "redis-svc" }}
-REDIS_HOST={{ .Address }}
-REDIS_PORT={{ .Port }}
-FLASK_HOST=0.0.0.0
-REFRESH_INTERVAL=500
-{{ end }}
+
 EOH
         destination = "local/env.txt"
         env         = true
