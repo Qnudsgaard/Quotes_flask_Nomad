@@ -1,4 +1,4 @@
-job "pytechco-web" {
+job "quotes-flask-web" {
   type = "service"
 
   group "ptc-web" {
@@ -10,7 +10,7 @@ job "pytechco-web" {
     }
 
     service {
-      name     = "ptc-web-svc"
+      name     = "frontend-service"
       port     = "web"
       provider = "nomad"
     }
@@ -32,7 +32,7 @@ EOH
       driver = "docker"
 
       config {
-        image = "ghcr.io/hashicorp-education/learn-nomad-getting-started/ptc-web:1.0"
+        image = "muhamadsdu/frontend:latest"
         ports = ["web"]
       }
     }
