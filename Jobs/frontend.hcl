@@ -1,7 +1,7 @@
 job "quotes-flask-web" {
   type = "service"
 
-  group "ptc-web" {
+  group "quotes-flask-web" {
     count = 1
     network {
       port "web" {
