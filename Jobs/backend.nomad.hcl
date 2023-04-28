@@ -5,7 +5,7 @@ job "quotes-flask-backend" {
     count = 1
     network {
       port "web" {
-        static = 5000
+        to = 5000
       }
     }
 

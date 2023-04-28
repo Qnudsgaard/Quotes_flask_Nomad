@@ -18,7 +18,8 @@ job "quotes-flask-web" {
     task "ptc-web-task" {
       template {
         data        = <<EOH
-
+FLASK_APP=app.py
+FLASK_ENV=development
 EOH
         destination = "local/env.txt"
         env         = true
@@ -30,6 +31,13 @@ EOH
         image = "muhamadsdu/frontend:latest"
         ports = ["web"]
       }
+
+      env {
+        BACKEND_HOST = "{{ range service \"backend\" }}{{ .Address }}{{ end }}"
+        BACKEND_PORT = "{{ range service \"backend\" }}{{ .Port }}{{ end }}"
+      }
     }
   }
 }
+
+
